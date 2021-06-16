@@ -2,17 +2,20 @@ class Node():
     def __init__(self,data):
         self.data = data
         self.next = None
-
-class Linklist():
+        
+    
+class LinkList():
     def __init__(self):
         self.head = None
     
     def printlist(self):
         temp = self.head
+        
         while(temp):
-            print(temp.data)
+            print(temp.data,'-->', end = ' ')
             temp = temp.next
-
+        print('Null\n')
+    
     def push(self,data):
         new_data = Node(data)
         new_data.next = self.head
@@ -36,27 +39,46 @@ class Linklist():
         while (last.next):
             last = last.next
         last.next = new_node            
+     
+    def delnode(self,data):
+        
+        temp = self.head
+        
+        if (temp is not None):
+            if (temp.data == data):
+                self.head = temp.next
+                temp = None
+                return
+        
+        while (temp is not None):
+            if (temp.data == data):
+                break
+            prev = temp
+            temp = temp.next
+        
+        if (temp is None):
+            return
+        
+        prev.next = temp.next
+        temp = None
 
-            
-if __name__ == '__main__':
-    
-    #initializing
-    obj = Linklist()
-    obj.head = Node('apple')
-    sec = Node('banana')
-    third = Node('cat')
-    
-    #linking
-    obj.head.next = sec
-    sec.next = third
-    
-    #pushing new data(Node)
-    obj.push('dog')
-    
-    #inserting new data after given node
-    obj.insertin(sec,'elephant')
-    
-    obj.append('fish')
-    
-    #printing linklist
-    obj.printlist()
+obj = LinkList()
+
+one = Node('apple')
+two = Node('ball')
+three = Node('cat')
+four = Node('dog')
+five = Node('elephant')
+
+obj.head = one
+one.next = two
+two.next = three
+three.next = four
+four.next = five
+
+obj.printlist()
+obj.push('pineapple')
+obj.insertin(three, 'catfish')
+obj.append('fish')
+obj.delnode('cat')
+obj.printlist()
