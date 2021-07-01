@@ -183,26 +183,28 @@ class LinkList():
             count+=1
             temp = temp.next
         return count            
-        
-obj = LinkList()
 
-one = Node('apple')
-two = Node('ball')
-three = Node('cat')
-four = Node('dog')
-five = Node('elephant')
-
-obj.head = one
-one.next = two
-two.next = three
-three.next = four
-four.next = five
-
-obj.printlist()
-obj.push('pineapple')
-obj.insertin(three, 'catfish')
-obj.append('fish')
-obj.delnode('cat')
-obj.delnodeposi(2)
-obj.printlist()
-obj.getcount()
+if __name__ == "__main__":   
+     
+    obj = LinkList()
+    
+    one = Node('apple')
+    two = Node('ball')
+    three = Node('cat')
+    four = Node('dog')
+    five = Node('elephant')
+    
+    obj.head = one
+    one.next = two
+    two.next = three
+    three.next = four
+    four.next = five
+    
+    obj.printlist()
+    obj.push('pineapple')
+    obj.insertin(three, 'catfish')
+    obj.append('fish')
+    obj.delnode('cat')
+    obj.delnodeposi(2)
+    obj.printlist()
+    obj.getcount()
