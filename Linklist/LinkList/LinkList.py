@@ -2,7 +2,7 @@ class Node():
     def __init__(self,data):
         self.data = data
         self.next = None
-        
+        self.flag = None
     
 class LinkList():
     def __init__(self):
@@ -361,32 +361,69 @@ class LinkList():
             hashh.add(temp)    
         return True
         
-
-
-
-if __name__ == "__main__":   
-     
-    obj = LinkList()
+    def creatloop(self,n):
+        '''
+        create loop in a link list
+        '''
+        
+        temp1 = self.head 
+        count = 0 
+        while count !=n:
+            temp1 = temp1.next 
+            count+=1
+            
+        temp2 = self.head 
+        while temp2.next:
+            temp2 = temp2.next
+            
+        temp2.next = temp1
     
-    one = Node(1)
-    two = Node(2)
-    three = Node(3)
-    four = Node(4)
-    five = Node(1)
     
-    obj.head = one
-    one.next = two
-    two.next = three
-    three.next = four
-    four.next = five
+    def looplength(self):
+        '''
+        returns the length of the loop in a linklist
+        '''        
+        temp = self.head 
+        if temp is None:
+            return 'Linklist empty'
+        temp.flag = 1 #visited
+        
+        while True:
+            count = 0
+            if temp.next.flag ==1:
+                temp = temp.next 
+                temp.flag = 0
+                count+=1
+                temp = temp.next
+                break
+            temp = temp.next
+            temp.flag = 1
+            
+            if temp is None:
+                return 'No Loop Found'
+            
+        while temp.flag!=0:
+            count+=1
+            temp = temp.next
+        return count
     
-    obj.printlist()
-    obj.push('pineapple')
-    obj.insertin(three, 'catfish')
-    obj.append('fish')
-    obj.delnode('cat')
-    obj.delnodeposi(2)
-    obj.printlist()
-    obj.getcount()
-    
-    obj.palindrome()
+    def remove_duplicate(self):
+        '''
+        removes duplicate values from the linklist
+        '''
+        sett = set()
+        
+        prev = self.head
+        temp = self.head.next
+        
+        sett.add(prev.data)
+        while temp:
+            if temp.data in sett:
+                prev.next = temp.next
+                del temp.data
+                temp = temp.next
+            else:
+                sett.add(temp.data)
+                temp = temp.next
+                prev = prev.next
+        return self.printlist()
