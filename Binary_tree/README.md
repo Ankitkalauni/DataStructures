@@ -6,7 +6,7 @@ The depth of a node is the **number of edges from the node to the tree's root no
 The height of a node is the **number of edges on the longest path from the node to a leaf.**
 >A leaf node will have a height of 0.
 
-![Image of Height & Depth of a Tree](https://github.com/ankitkalauni/DataStructures/Binary_tree/binary_tree.png?raw=true)
+![Image of Height & Depth of a Tree](https://github.com/Ankitkalauni/DataStructures/blob/main/Binary_tree/binary_tree.png?raw=true)
 
 **Properties of a tree:**
 
