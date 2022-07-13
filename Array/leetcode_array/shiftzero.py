@@ -18,5 +18,7 @@ def shiftZero(arr1):
 
 if __name__ == '__main__':
     arr1 = [2,3,0,6,0,5,8]
+
+    shiftZero(arr1)
     for i in arr1:
         print(i, end = ' ')
